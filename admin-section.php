@@ -22,7 +22,7 @@ function _handle_post(){
 	if(isset($_POST['submit'])){
 		global $wpdb;
 		$table_name = $wpdb->prefix ."booking_classes";
-		unset($_POST['submit']);		
+		unset($_POST['submit']);				
 		$chDay = [
 				'Monday'=>'1',
 				'Tuesday'=>'2',
@@ -33,8 +33,17 @@ function _handle_post(){
 				'Sunday'=>'7',
 		];
 		$_POST['ch_day'] = $chDay[$_POST['en_day']];
-		$wpdb->insert($table_name,$_POST);       		
-        $url = admin_url('users.php?page=aayanshtech-booking&save=1');        
+		if($_POST['action']=='update'){
+			$id = $_POST['id'];
+			unset($_POST['id'],$_POST['action']);		
+			$wpdb->update($table_name,$_POST,['id'=>$id]);   
+			#exit( var_dump( $wpdb->last_query ) );
+			$url = admin_url('users.php?page=aayanshtech-booking&message=2&update='.$id);       
+		}else{
+			unset($_POST['id'],$_POST['action']);
+			$wpdb->insert($table_name,$_POST);     
+			 $url = admin_url('users.php?page=aayanshtech-booking&message=1');        
+		}        
 		redirect($url);
         exit();
 	}

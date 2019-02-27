@@ -129,7 +129,7 @@ class Class_List extends WP_List_Table {
 
 		$delete_nonce = wp_create_nonce('ap_delete_class');
 		$title = '<strong>' . $item['en_district'] . '</strong>';
-		$editUrl = sprintf('<a href="%s">Edit</a>','#');		
+		$editUrl = sprintf('<a href="admin.php?page=aayanshtech-booking&update=%s">Edit</a>',$item['id']);		
 		$deleteUrl = sprintf( '<a href="?page=%s&action=%s&class=%s&_wpnonce=%s">Delete</a>', esc_attr( $_REQUEST['page'] ), 'delete', absint($item['id']), $delete_nonce );		
 		
 		$actions = array(
