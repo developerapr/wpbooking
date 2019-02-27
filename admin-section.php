@@ -1,0 +1,52 @@
+<?php
+function register_custom_menu_page() {
+    add_menu_page(
+				__('Booking'), 
+				__('Booking'), 
+				'edit_themes', 
+				'aayanshtech-booking', 
+				'_bokking_menu_page',
+				'dashicons-editor-justify',
+				81
+	); 
+	
+}
+add_action('admin_menu', 'register_custom_menu_page');
+
+function _bokking_menu_page(){
+	_handle_post();
+	require 'admin_form.php';
+}
+
+function _handle_post(){      
+	if(isset($_POST['submit'])){
+		global $wpdb;
+		$table_name = $wpdb->prefix ."booking_classes";
+		unset($_POST['submit']);		
+		$chDay = [
+				'Monday'=>'1',
+				'Tuesday'=>'2',
+				'Wednesday'=>'3',
+				'Thursday'=>'4',
+				'Friday'=>'5',
+				'Saturday'=>'6',
+				'Sunday'=>'7',
+		];
+		$_POST['ch_day'] = $chDay[$_POST['en_day']];
+		$wpdb->insert($table_name,$_POST);       		
+        $url = admin_url('users.php?page=aayanshtech-booking&save=1');        
+		redirect($url);
+        exit();
+	}
+}
+function redirect($url)
+{
+    $string = '<script type="text/javascript">';
+    $string .= 'window.location = "' . $url . '"';
+    $string .= '</script>';
+    echo $string;
+}
+require_once 'wp_table_grid.php';
+	add_action( 'plugins_loaded', function () {
+		AP_Plugin::get_instance();
+} );
