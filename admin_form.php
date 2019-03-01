@@ -25,30 +25,37 @@ $darArray = ['Monday','Tuesday','Thursday','Wednesday','Friday','Saturday','Sund
 	<div class="row">               
 		<div class="col-lg-12">  
 			<div class="col-lg-6">  
-				<input type="text" name="en_district" value="<?php echo $en_district ?>" placeholder="en_district"required/>
+				<label for="en_district">District English</label>
+				<input type="text" name="en_district" value="<?php echo $en_district ?>" required/>
 			</div>
 			<div class="col-lg-6">  
-				<input type="text" name="ch_district" value="<?php echo $ch_district ?>" placeholder="ch_district" required/>
+				<label for="ch_district">District Chinese</label>
+				<input type="text" name="ch_district" value="<?php echo $ch_district ?>"  required/>
 			</div>
 		</div>       
 		<div class="col-lg-12">  
 			<div class="col-lg-6">  
-				<input type="text" name="en_session" value="<?php echo $en_session ?>" placeholder="en_session" required/>
+				<label for="en_session">Session English</label>
+				<input type="text" name="en_session" value="<?php echo $en_session ?>"  required/>
 			</div>
 			<div class="col-lg-6">  
-				<input type="text" name="ch_session" value="<?php echo $ch_session ?>" placeholder="ch_session" required/>
+				<label for="ch_session">Session Chinese</label>
+				<input type="text" name="ch_session" value="<?php echo $ch_session ?>"  required/>
 			</div>
 		</div>     	 	
 		<div class="col-lg-12">  
 			<div class="col-lg-6">  
-				<input type="text" name="en_program" value="<?php echo $en_program ?>" placeholder="en_program" required/>
+				<label for="en_program">Program English</label>
+				<input type="text" name="en_program" value="<?php echo $en_program ?>"  required/>
 			</div>
 			<div class="col-lg-6">  
-				<input type="text" name="ch_program" value="<?php echo $ch_program ?>" placeholder="ch_program" required/>
+				<label for="ch_program">Program Chinese</label>
+				<input type="text" name="ch_program" value="<?php echo $ch_program ?>" required/>
 			</div>
 		</div> 
 		<div class="col-lg-12">  
 			<div class="col-lg-6">  
+				<label for="en_day">Day</label>
 				<select name="en_day" required>
 					<option value="">Select a day..</option>
 					<?php 
@@ -63,23 +70,28 @@ $darArray = ['Monday','Tuesday','Thursday','Wednesday','Friday','Saturday','Sund
 				</select>				
 			</div>
 			<div class="col-lg-6">  
-				<input type="url" name="map" value="<?php echo $map ?>" placeholder="map" required/>		
+				<label for="map">Map</label>
+				<input type="url" name="map" value="<?php echo $map ?>" required/>	
 			</div>
 		</div> 
 		<div class="col-lg-12">  
 			<div class="col-lg-6">  
-				<input type="text" name="en_start_time" value="<?php echo $en_start_time ?>" placeholder="time" required/>
+				<label for="en_start_time">Time</label>
+				<input type="text" name="en_start_time" value="<?php echo $en_start_time ?>" required/>
 			</div>
 			<div class="col-lg-6">  
-				<input type="number" name="age" value="<?php echo $age ?>" placeholder="age" required max="60"/>
+				<label for="age">Age</label>
+				<input type="number" name="age" value="<?php echo $age ?>"  required max="60"/>
 			</div>
 		</div>   
 		<div class="col-lg-12">  
 			<div class="col-lg-6">  
-				<input type="number" name="class_size" value="<?php echo $class_size ?>" placeholder="class_size" required/>
+				<label for="class_size">Class Size</label>
+				<input type="number" name="class_size" value="<?php echo $class_size ?>" required/>
 			</div>
 			<div class="col-lg-6">  
-				<input type="number" name="open_space" value="<?php echo $open_space ?>" placeholder="open_space" required/>
+				<label for="open_space">Open Size</label>
+				<input type="number" name="open_space" value="<?php echo $open_space ?>" required/>
 			</div>
 		</div> 
 		<div class="col-lg-12">  
@@ -99,7 +111,8 @@ $darArray = ['Monday','Tuesday','Thursday','Wednesday','Friday','Saturday','Sund
 <style>
 .booking-wrapper .col-lg-12 {    width: 100%;    clear: both;}
 .booking-wrapper .col-lg-6 { width: 42%; float:left;}
-.booking-wrapper .col-lg-12 input, .booking-wrapper .col-lg-12 select{    width: 90%;    line-height: 1.5em;    padding: 6px 6px;  margin: 10px 9px;}
+.booking-wrapper .col-lg-12 input, .booking-wrapper .col-lg-12 select{    width: 90%;    line-height: 1.5em;    padding: 6px 6px;  margin: 5px 9px;}
 input#map{ width: 38%;}
 .message{color:green;}
+.booking-wrapper .col-lg-12 label{ margin-left: 2%; font-weight: bold;}
 </style>
